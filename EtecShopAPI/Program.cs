@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 string conexao = builder.Configuration.GetConnectionString("EtecShopDB");
 var servidor =  ServerVersion.AutoDetect(conexao);
 
-builder.Services.AppDbContext<AppDbContext>(
+builder.Services.AddDbContext<AppDbContext>(
     options => options.UseMySql(conexao, servidor)
 );
 
